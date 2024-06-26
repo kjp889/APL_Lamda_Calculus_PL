@@ -1,18 +1,20 @@
 %{
 #include <stdio.h>
+#include "y.tab.h"
 %}
 
 %%
-[0-9]+      printf("Number\n");
-[a-z]       printf("IDENTIFIER\n");
-#           printf("Lamda\n");
-\(          printf("OBRACE\n");
-\)          printf("CBRACE\n");
-\+          printf("PLUS\n");
-\-          printf("MINUS\n");
-\*          printf("TIMES\n");
-\/          printf("DIVIDE\n");
-\=          printf("EQUALS\n");
-\.          printf("DOT\n");
-
+[a-z0-9]+   printf("NAME");
+[a-z]       printf("IDENTIFIER");
+#           printf("Lamda");
+\(          printf("OBRACE");
+\)          printf("CBRACE");
+\+          printf("PLUS");
+\-          printf("MINUS");
+\*          printf("TIMES");
+\/          printf("DIVIDE");
+\=          printf("EQUALS");
+\.          printf("DOT");
+\n          printf("NEWLINE");
+[ \t]+      /* ignore whitespace */;
 %%
