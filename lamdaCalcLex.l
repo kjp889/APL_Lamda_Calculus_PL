@@ -1,20 +1,20 @@
+/*
+Group Members
+Kyle Parris - 1804904
+Chloe Hibbert - 1902963
+Pete Aris - 1704057
+*/
+
 %{
 #include <stdio.h>
 #include "y.tab.h"
 %}
 
 %%
-[a-z0-9]+   printf("NAME");
-[a-z]       printf("IDENTIFIER");
-#           printf("Lamda");
-\(          printf("OBRACE");
-\)          printf("CBRACE");
-\+          printf("PLUS");
-\-          printf("MINUS");
-\*          printf("TIMES");
-\/          printf("DIVIDE");
-\=          printf("EQUALS");
-\.          printf("DOT");
-\n          printf("NEWLINE");
-[ \t]+      /* ignore whitespace */;
+[a-z]       return VARTKN;
+#           return LAMBDATKN;
+\(          return OBRACETKN;
+\)          return CBRACETKN;
+\.          return DOTTKN;
+[ \t\n]+      /* ignore whitespace */;
 %%
